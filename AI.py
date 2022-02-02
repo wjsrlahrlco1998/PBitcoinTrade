@@ -82,22 +82,24 @@ schedule.every().hour.do(lambda: predict_price(coin_Fname))
 upbit = pyupbit.Upbit(access, secret)
 print("Login Success")
 
-print("Target Coin : " + coin_Fname + "(" + coin_Sname + ")")
-print("Are you sure you want to edit? (yes : 1, no : 0)")
-answer_edit = input()
-if answer_edit == 1:
-  print("Target Coin Full Name : ")
-  coin_Fname = input()
-  print("Target Coin Small Name : ")
-  coin_Sname = input()
+# print("Target Coin : " + coin_Fname + "(" + coin_Sname + ")")
+# print("Are you sure you want to edit? (yes : 1, no : 0)")
+# answer_edit = input()
+# if answer_edit == 1:
+#  print("Target Coin Full Name : ")
+#  coin_Fname = input()
+#  print("Target Coin Small Name : ")
+#  coin_Sname = input()
 
 # Best K 값 구하기
 k = get_best_k()
+count = 1
 
 print("Autotrade start")
 
 # 자동매매 시작
 while True:
+  print(count++)
     try:
         now = datetime.datetime.now()
         start_time = get_start_time(coin_Fname)
